@@ -1,0 +1,252 @@
+/* ───────── Editorial edition — chapters 03–07 ───────── */
+.ed-section {
+  position: relative;
+  z-index: 2;
+  padding: 110px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.ed-dark {
+  background: var(--navy-2);
+  color: var(--ivory);
+}
+.ed-paper {
+  background: var(--ivory);
+  color: var(--navy);
+}
+.ed-section h2 {
+  margin: 14px 0 0;
+  font-size: clamp(40px, 4.6vw, 68px);
+  line-height: 0.98;
+}
+.ed-section__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+.ed-section__head p {
+  max-width: 340px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.ed-dark .ed-section__head p {
+  color: #d0d4da;
+}
+.ed-paper .ed-section__head p {
+  color: #2b303b;
+}
+.ed-courses {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 22px;
+}
+.ed-course {
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #f3eee4;
+  color: var(--navy);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+}
+.ed-course__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #50555f;
+}
+.ed-course h3 {
+  margin: 12px 0 0;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+}
+.ed-course p,
+.ed-course ul {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #353a45;
+}
+.ed-course ul {
+  padding: 12px 0 0;
+  list-style: none;
+  border-top: 1px solid var(--rule-light);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ed-course .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+.ed-languages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.ed-languages h2 {
+  grid-row: span 2;
+  margin: 0;
+}
+.ed-visa {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 96px;
+}
+.ed-visa > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.ed-visa p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #d0d4da;
+}
+.ed-visa .btn {
+  align-self: flex-start;
+}
+.ed-visa__stages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(184, 149, 90, 0.5);
+}
+.ed-visa__stages li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(233, 228, 218, 0.14);
+}
+.ed-visa__stages .caps {
+  font-size: 10px;
+  color: var(--gold-light);
+}
+.ed-visa__stages .display {
+  font-size: 26px;
+  font-weight: 500;
+}
+.ed-note {
+  margin: 0;
+  font-size: 12px;
+  color: #adb2bc;
+}
+.ed-pathways {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--navy);
+}
+.ed-pathways article {
+  padding: 32px 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ed-pathways article + article {
+  padding-left: 32px;
+  border-left: 1px solid var(--rule-light);
+}
+.ed-pathways .caps {
+  font-size: 10px;
+  color: #50555f;
+}
+.ed-pathways h3 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 500;
+}
+.ed-pathways p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2b303b;
+}
+.ed-pathways .btn {
+  align-self: flex-start;
+}
+.ed-vfs {
+  position: static;
+  width: auto;
+  max-width: 760px;
+}
+.ed-journey__title {
+  margin-top: 0;
+}
+.ed-journey {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 36px 28px;
+  border-top: 1px solid rgba(184, 149, 90, 0.5);
+  padding-top: 28px;
+}
+.ed-journey li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ed-journey .caps {
+  font-size: 10px;
+  color: var(--gold-light);
+}
+.ed-journey .display {
+  font-size: 30px;
+  font-style: italic;
+}
+.ed-journey p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #d0d4da;
+}
+@media (max-width: 1100px) {
+  .ed-courses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ed-journey {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .ed-section {
+    padding: 72px 16px;
+    gap: 32px;
+  }
+  .ed-section__head,
+  .ed-languages,
+  .ed-visa,
+  .ed-pathways {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  .ed-courses,
+  .ed-journey {
+    grid-template-columns: 1fr;
+  }
+  .ed-pathways article + article {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--rule-light);
+  }
+}
+
+/* The static edition scrolls through light and dark sections: give the bar its own ground. */
+.site-header.is-editorial.is-compact {
+  opacity: 1;
+  background: rgba(6, 8, 13, 0.9);
+  backdrop-filter: blur(10px);
+}
+.site-header.is-editorial.is-compact.on-paper {
+  background: rgba(243, 238, 228, 0.94);
+}

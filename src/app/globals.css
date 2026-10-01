@@ -1,0 +1,225 @@
+:root {
+  --ink: #06080d;
+  --navy: #0d1830;
+  --navy-2: #0b1428;
+  --gold: #b8955a;
+  --gold-light: #d2b785;
+  --gold-deep: #6f5226;
+  --ivory: #f3eee4;
+  --paper: #eae3d5;
+  --muted: #b4b9c3;
+  --ribbon: #7e2f2a;
+  --text-on-dark: #e9e4da;
+  --text-soft: #d8dbe0;
+  --rule-light: #d9cfbc;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --gutter: clamp(16px, 3.9vw, 56px);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--ink);
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold-light);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: rgba(184, 149, 90, 0.35);
+  color: var(--ivory);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  z-index: 100;
+  padding: 12px 16px;
+  background: var(--ivory);
+  color: var(--navy);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+/* Typographic primitives */
+.caps {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.display em,
+.italic {
+  font-style: italic;
+}
+
+/* Buttons — rectangular, 2px radius max, 11px caps, 0.24em tracking */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 30px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out),
+    border-color 0.4s var(--ease-out),
+    color 0.4s var(--ease-out);
+}
+/* A single soft band of light passes once across the button on hover. */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 244, 222, 0.28) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.9s var(--ease-out);
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:hover::after {
+  transform: translateX(120%);
+}
+.btn-solid {
+  background: var(--ivory);
+  color: var(--navy);
+}
+.btn-solid:hover {
+  box-shadow:
+    0 10px 30px -12px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 var(--gold);
+}
+.btn-navy {
+  background: var(--navy);
+  color: var(--ivory);
+}
+.btn-navy:hover {
+  box-shadow:
+    0 10px 30px -14px rgba(13, 24, 48, 0.6),
+    inset 0 -1px 0 var(--gold);
+}
+.btn-outline {
+  border-color: rgba(184, 149, 90, 0.7);
+  color: var(--text-on-dark);
+  font-weight: 600;
+}
+.btn-outline:hover {
+  border-color: var(--gold-light);
+}
+.btn-link {
+  min-height: 44px;
+  padding: 0 0 2px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(184, 149, 90, 0.6);
+  border-radius: 0;
+  overflow: visible;
+  font-weight: 600;
+}
+.btn-link::after {
+  display: none;
+}
+.btn-link:hover {
+  border-bottom-color: var(--gold-light);
+  color: var(--gold-light);
+}
+.btn-link.on-paper {
+  color: var(--navy);
+  border-bottom-color: var(--gold);
+}
+.btn-link.on-paper:hover {
+  color: var(--gold-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn::after {
+    transition: none;
+  }
+}
